@@ -46,8 +46,10 @@ public class DetailedFraudDetector extends KeyedProcessFunction<Long, DetailedTr
                 alert.setTimestamp(transaction.getTimestamp());
                 alert.setAmount(transaction.getAmount());
                 alert.setZipCode(transaction.getZipCode());
+                
+                System.out.println(alert);
 
-                collector.collect(alert);
+                // collector.collect(alert);
             }
             // Clean up our state
             cleanUp(context);
