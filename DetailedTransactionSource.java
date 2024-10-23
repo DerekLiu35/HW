@@ -17,6 +17,7 @@ public class DetailedTransactionSource extends FromIteratorFunction<DetailedTran
         super(new RateLimitedIterator<>(DetailedTransactionIterator.unbounded()));
     }
 
+    // Rate limiter to control the speed of transaction generation
     private static class RateLimitedIterator<T> implements Iterator<T>, Serializable {
         private static final long serialVersionUID = 1L;
         private final Iterator<T> inner;
@@ -37,4 +38,3 @@ public class DetailedTransactionSource extends FromIteratorFunction<DetailedTran
         }
     }
 }
-
